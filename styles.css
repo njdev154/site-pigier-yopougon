@@ -11,14 +11,12 @@
   --radius: 14px;
 }
 
-/* box-sizing: border-box sur tous les elements : ca evite les mauvaises
-   surprises de largeur quand j'ajoute du padding ou une bordure */
 * {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth; /* pour un defilement doux quand on clique sur un lien du menu  */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -62,7 +60,7 @@ p {
   background: var(--surface-alt);
 }
 
-/* EN-TETE / NAVIGATION */
+/*EN-TETE / NAVIGATION */
 .site-header {
   position: sticky; /* reste colle en haut meme quand on scrolle */
   top: 0;
@@ -144,7 +142,6 @@ p {
 }
 
 /* SECTION HERO */
-
 .hero-grid {
   display: flex;
   gap: 28px;
@@ -207,8 +204,6 @@ p {
   overflow: hidden;
 }
 
-/* aspect-ratio: 16/9 garde toujours le meme format d'image pour la
-   video, quelle que soit la largeur de l'ecran */
 .media-card iframe,
 .media-card video {
   width: 100%;
@@ -219,6 +214,9 @@ p {
   object-fit: contain;
 }
 
+/*CARTES (formations, avantages, temoignages...)
+   Trois variantes qui partagent le meme style de base (.card) mais
+   avec une largeur flex differente selon le nombre de cartes par ligne */
 .cards-4,
 .cards-3,
 .stats {
@@ -282,7 +280,7 @@ p {
   object-fit: contain;
 }
 
-/* SECTION RESULTATS (chiffres cles)*/
+/* SECTION RESULTATS (chiffres cles) */
 .stat-card {
   flex: 1 1 180px;
   background: #0f3478;
@@ -322,7 +320,7 @@ p {
 }
 
 .contact-form {
-  background: rgba(255, 255, 255, 1);
+  background: var(--primary);
   padding: 20px;
   border-radius: var(--radius);
   backdrop-filter: blur(3px);
@@ -332,47 +330,52 @@ p {
   display: block;
   margin-top: 10px;
   font-weight: 700;
-  color: var(
-    --text
-  ); /* sans ca, le label heritait du blanc defini sur .cta et devenait invisible sur le fond blanc du formulaire */
-}
+  color: #fff;
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  margin-top: 6px;
-  padding: 10px;
-  border: 1px solid rgba(10, 61, 145, 0.25); /* avant : blanc quasi transparent sur fond blanc = invisible */
-  border-radius: 8px;
-  background: #fff;
-  color: #1f2f46;
-  font: inherit;
-}
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #e0b64a;
+    border-radius: 8px;
+    background: #fff3c4;
+    color: #1f2f46;
+    font: inherit;
+  }
 
-.contact-form button {
-  margin-top: 14px;
-}
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    background: #ffe9a3;
+    border-color: var(--accent);
+  }
 
-/* PIED DE PAGE */
-.site-footer {
-  background: #041f4b;
-  color: #d3def7;
-  padding: 18px 0;
-  text-align: center;
-}
+  .contact-form button {
+    margin-top: 14px;
+  }
 
-.back-to-top {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  background: #fff1b6;
-  color: #3f2b00;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
-}
+  /* PIED DE PAGE */
+  .site-footer {
+    background: #041f4b;
+    color: #d3def7;
+    padding: 18px 0;
+    text-align: center;
+  }
 
-.back-to-top:hover {
-  background: #ffe37b;
+  .back-to-top {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    background: #fff1b6;
+    color: #3f2b00;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  }
+
+  .back-to-top:hover {
+    background: #ffe37b;
+  }
 }
