@@ -1,5 +1,4 @@
-﻿
-:root {
+﻿:root {
   --bg: #f7f8fb;
   --surface: #fffdf3;
   --surface-alt: #fff8dc;
@@ -12,17 +11,19 @@
   --radius: 14px;
 }
 
+/* box-sizing: border-box sur tous les elements : ca evite les mauvaises
+   surprises de largeur quand j'ajoute du padding ou une bordure */
 * {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* pour un defilement doux quand on clique sur un lien du menu  */
 }
 
 body {
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: var(--text);
   background: linear-gradient(180deg, #fffef8 0%, #fff7d6 100%);
   line-height: 1.6;
@@ -32,7 +33,7 @@ h1,
 h2,
 h3 {
   margin: 0 0 12px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.25;
 }
 
@@ -61,9 +62,9 @@ p {
   background: var(--surface-alt);
 }
 
-
+/* EN-TETE / NAVIGATION */
 .site-header {
-  position: sticky;
+  position: sticky; /* reste colle en haut meme quand on scrolle */
   top: 0;
   z-index: 20;
   backdrop-filter: blur(8px);
@@ -80,7 +81,7 @@ p {
 }
 
 .logo {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   text-decoration: none;
   color: var(--primary);
@@ -88,7 +89,6 @@ p {
   align-items: center;
   min-height: 56px;
 }
-
 
 .logo img {
   display: block;
@@ -113,7 +113,7 @@ p {
   color: var(--primary);
 }
 
-
+/* BOUTONS */
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -143,6 +143,7 @@ p {
   background: rgba(10, 61, 145, 0.08);
 }
 
+/* SECTION HERO */
 
 .hero-grid {
   display: flex;
@@ -175,7 +176,10 @@ p {
   color: #7a5600;
   background: #fff3c4;
   box-shadow: 0 6px 14px rgba(122, 86, 0, 0.18);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .hero-email:hover {
@@ -203,6 +207,8 @@ p {
   overflow: hidden;
 }
 
+/* aspect-ratio: 16/9 garde toujours le meme format d'image pour la
+   video, quelle que soit la largeur de l'ecran */
 .media-card iframe,
 .media-card video {
   width: 100%;
@@ -212,7 +218,6 @@ p {
   display: block;
   object-fit: contain;
 }
-
 
 .cards-4,
 .cards-3,
@@ -224,11 +229,11 @@ p {
 }
 
 .cards-4 .card {
-  flex: 1 1 220px;
+  flex: 1 1 220px; /* 4 cartes par ligne sur grand ecran */
 }
 
 .cards-3 .card {
-  flex: 1 1 280px;
+  flex: 1 1 280px; /* 3 cartes par ligne, un peu plus larges */
 }
 
 .card {
@@ -246,7 +251,7 @@ p {
   color: var(--primary);
 }
 
-
+/* SECTION EVENEMENTS / VIDEOS */
 .event-videos {
   display: flex;
   flex-wrap: wrap;
@@ -277,7 +282,7 @@ p {
   object-fit: contain;
 }
 
-
+/* SECTION RESULTATS (chiffres cles)*/
 .stat-card {
   flex: 1 1 180px;
   background: #0f3478;
@@ -288,7 +293,7 @@ p {
 }
 
 .stat-number {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 4px;
@@ -299,7 +304,7 @@ p {
   margin: 0;
 }
 
-/* CTA + FORM */
+/* SECTION CONTACT + FORMULAIRE */
 .cta {
   background: linear-gradient(135deg, #082b66 0%, #0f458e 100%);
   color: #fff;
@@ -317,7 +322,7 @@ p {
 }
 
 .contact-form {
-  background: rgba(255, 255, 255, 1.1);
+  background: rgba(255, 255, 255, 1);
   padding: 20px;
   border-radius: var(--radius);
   backdrop-filter: blur(3px);
@@ -327,6 +332,9 @@ p {
   display: block;
   margin-top: 10px;
   font-weight: 700;
+  color: var(
+    --text
+  ); /* sans ca, le label heritait du blanc defini sur .cta et devenait invisible sur le fond blanc du formulaire */
 }
 
 .contact-form input,
@@ -334,7 +342,7 @@ p {
   width: 100%;
   margin-top: 6px;
   padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(10, 61, 145, 0.25); /* avant : blanc quasi transparent sur fond blanc = invisible */
   border-radius: 8px;
   background: #fff;
   color: #1f2f46;
@@ -345,7 +353,7 @@ p {
   margin-top: 14px;
 }
 
-/* FOOTER */
+/* PIED DE PAGE */
 .site-footer {
   background: #041f4b;
   color: #d3def7;
